@@ -1,8 +1,3 @@
-/*!
-  jQuery JSON WhatsApp InstaOrder
-  Created by livelyworks - http://livelyworks.net
-  Ver. 1.0.0 - 12 FEB 2021
-*/
 // whatsAppInstaOrder
 (function ($, window) {
     "use strict";
@@ -12,18 +7,18 @@
     $.whatsAppInstaOrder.defaultOptions = {
         // data url for products json
         // set if other than default
-        dataUrl: "data-provider/products.json",
+        dataUrl: "",
         siteBaseUrl: '',
         // whatever to force fresh data or not
         forceFresh: false,
         // your store name
-        storeName: "jQuery JSON - WhatsApp InstaOrder",
+        storeName: "",
         // logo image path
         logoImage: "",
         // set currency symbol
         currencySymbol: "$",
         // currency symbol
-        currency: "USD",
+        currency: "",
         // checkout methods
         checkoutMethods: {
             orderByWhatsApp: {
@@ -33,29 +28,29 @@
                 orderTypes: {
                     takeaway: {
                         enable: true,
-                        title: "Takeaway",
+                        title: "",
                     },
                     delivery: {
                         // it will enable the form to submit address information
                         enable: true,
-                        title: "Delivery",
+                        title: "",
                     },
                     // will enable the table number field
                     table: {
                         enable: true,
-                        title: "Table",
+                        title: "",
                     },
                 },
                 // gateway title
-                title: "WhatsApp Order",
+                title: "",
                 // method name do not change
-                method: "orderByWhatsApp",
+                method: "",
                 // button element will be created using following information
                 btnElement: {
-                    id: "#whatsappCheckout",
-                    class: "btn-success",
+                    id: "#",
+                    class: "",
                     title:
-                        'Proceed to <i class="fab fa-whatsapp"></i> WhatsApp Order',
+                        '',
                     // imageUrl : 'image path for button'
                 }
             }
@@ -130,7 +125,7 @@
                 // to prevent hash change
                 preventHashChange: false,
                 // initial breadcrumb markup
-                initialBreadcrumb: '<li class="breadcrumb-item"><a data-categoryindex="all" href="#/category/uid-all" class="category-link-all category-link">All</a></li>',
+                initialBreadcrumb: '<li class="breadcrumb-item"><a data-categoryindex="all" href="#/category/uid-all" class="category-link-all category-link">Todas</a></li>',
                 parentCategoriesString: '',
                 currentPaginate: 20,
                 previousPaginate: 0,
@@ -617,10 +612,10 @@
                 }
                 var lengthOfCurrentCollection = _.size(currentProductCollection);
                 if (generalVars.currentPaginate >= lengthOfCurrentCollection) {
-                    $('.lw-result-loaded-text').html('Showing ' + lengthOfCurrentCollection + ' out of ' + lengthOfCurrentCollection);
+                    $('.lw-result-loaded-text').html('Mostrando ' + lengthOfCurrentCollection + ' de ' + lengthOfCurrentCollection);
                     $('.lw-load-more-content').hide();
                 } else {
-                    $('.lw-result-loaded-text').html('Showing ' + generalVars.currentPaginate + ' out of ' + lengthOfCurrentCollection);
+                    $('.lw-result-loaded-text').html('Mostrando ' + generalVars.currentPaginate + ' de ' + lengthOfCurrentCollection);
                     $('.lw-load-more-content').show();
                 }
 
@@ -810,7 +805,7 @@
 
                 generalVars.lastAccessedCategory = 'search';
                 $domElements.productsBreadcrumb.hide();
-                $domElements.searchedProductCounts.html(searchedProductsCollection.length + ' product(s) found');
+                $domElements.searchedProductCounts.html(searchedProductsCollection.length + ' resultados');
 
                 if (!_.isEqual(currentProductCollection, searchedProductsCollection)) {
 
@@ -1116,7 +1111,7 @@
                 );
 
                 $('#productsContainer .item-product-qty, .modal .item-product-qty').val(nProductInCart ? nProductInCart : 1);
-                $('#productsContainer .lw-popover-content .add-to-cart-btn-grid-item-save').text(nProductInCart ? 'Update' : 'Add');
+                $('#productsContainer .lw-popover-content .add-to-cart-btn-grid-item-save').text(nProductInCart ? 'Actualizar' : 'Agregar');
 
                 return nProductInCart;
             },
@@ -1264,10 +1259,10 @@
 
             onOrderSubmitted: function () {
 
-                var customerMailMessage = '<br/> Your order has been prepared, please Send it using your WhatsApp!!';
+                var customerMailMessage = '<br/> Tu pedido ha sido preparado, envíalo por WhatsApp!!';
 
-                $('.order-page-header').html("Order Prepared for WhatsApp");
-                $('.order-page-body').html("Thank you for your Order, " + customerMailMessage);
+                $('.order-page-header').html("Pedido preparado por WhatsApp");
+                $('.order-page-body').html("Gracias por tu pedido, " + customerMailMessage);
 
                 $('#backToCartBtn, #submitOrderBtn').hide();
                 $('.order-page-close-btn').show();
